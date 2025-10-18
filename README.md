@@ -113,13 +113,6 @@ var result = await client.SendReceiptAsync(receipt);
 - **טלפון:** אייל 052-635-0902
 - **תיעוד:** [NextReceipt API Provider Guide](https://github.com/eyalbmma/Nextreceipt-backend/blob/main/NextReceipt_API_Provider_Guide_Hebrew.md)
 
-## Backoffice
-
-**גישה למערכת הניהול:**
-- **URL:** https://backoffice.nextreceipt.net/
-- **Username:** autosoft_admin
-- **Password:** Autosoft2025!
-
 ---
 
 **💡 טיפ:** התחילו עם Smart Mode (send_receipt_with_mapping) - זה הכי פשוט ויעיל!
