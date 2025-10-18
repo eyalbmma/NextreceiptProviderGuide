@@ -3,16 +3,16 @@
 ## Python SDK
 
 ### קבצים זמינים:
-- `nextreceipt_sdk-1.0.0-py3-none-any.whl` - חבילה מוכנה להתקנה
-- `nextreceipt_sdk-1.0.0.tar.gz` - קוד מקור
+- [nextreceipt_sdk-1.0.0-py3-none-any.whl](https://raw.githubusercontent.com/eyalbmma/NextreceiptProviderGuide/main/nextreceipt_sdk-1.0.0-py3-none-any.whl) - חבילה מוכנה להתקנה (9.4 KB)
+- [nextreceipt_sdk-1.0.0.tar.gz](https://raw.githubusercontent.com/eyalbmma/NextreceiptProviderGuide/main/nextreceipt_sdk-1.0.0.tar.gz) - קוד מקור (9.4 KB)
 
 ### התקנה:
 ```bash
-# אופציה 1: התקנה מהחבילה המוכנה
-pip install nextreceipt_sdk-1.0.0-py3-none-any.whl
+# אופציה 1: התקנה ישירה מ-GitHub
+pip install https://raw.githubusercontent.com/eyalbmma/NextreceiptProviderGuide/main/nextreceipt_sdk-1.0.0-py3-none-any.whl
 
-# אופציה 2: התקנה מקוד מקור
-pip install nextreceipt_sdk-1.0.0.tar.gz
+# אופציה 2: הורדה מקומית והתקנה
+pip install nextreceipt_sdk-1.0.0-py3-none-any.whl
 ```
 
 ### שימוש:
@@ -24,7 +24,14 @@ client = NextReceiptClient(
     client_secret="your_client_secret"
 )
 
-# שליחת קבלה
+# שליחת קבלה עם מיפוי (Smart Mode)
+result = client.send_receipt_with_mapping({
+    "OrderID": "12345",
+    "TotalPrice": 150.50,
+    "StoreName": "My Store"
+})
+
+# או שליחה ישירה (Simple Mode)
 result = client.send_receipt({
     "payload": {
         "sale": {"id": "SALE123", "total_amount": 150.50},
@@ -41,14 +48,14 @@ result = client.send_receipt({
 ## C# SDK
 
 ### קבצים זמינים:
-- `NextReceipt.SDK.1.0.0.nupkg` - חבילת NuGet
+- [NextReceipt.SDK.1.0.0.nupkg](https://raw.githubusercontent.com/eyalbmma/NextreceiptProviderGuide/main/NextReceipt.SDK.1.0.0.nupkg) - חבילת NuGet (13 KB)
 
 ### התקנה:
 ```bash
-# אופציה 1: התקנה מחבילת NuGet מקומית
-dotnet add package NextReceipt.SDK --source .
+# אופציה 1: התקנה ישירה מ-GitHub
+dotnet add package https://raw.githubusercontent.com/eyalbmma/NextreceiptProviderGuide/main/NextReceipt.SDK.1.0.0.nupkg
 
-# אופציה 2: התקנה ישירה
+# אופציה 2: הורדה מקומית והתקנה
 dotnet add package NextReceipt.SDK.1.0.0.nupkg
 ```
 
@@ -61,6 +68,14 @@ var client = new NextReceiptClient(
     clientSecret: "YOUR_CLIENT_SECRET"
 );
 
+// שליחת קבלה עם מיפוי (Smart Mode)
+var result = await client.SendReceiptWithMappingAsync(new {
+    OrderID = "12345",
+    TotalPrice = 150.50,
+    StoreName = "My Store"
+});
+
+// או שליחה ישירה (Simple Mode)
 var receipt = new
 {
     payload = new
@@ -94,5 +109,17 @@ var result = await client.SendReceiptAsync(receipt);
 ## תמיכה טכנית
 
 לשאלות או בעיות, פנו ל:
-- Email: support@nextreceipt.com
-- תיעוד: [NextReceipt API Guide](../README_API_Provider_Guide.md)
+- **Email:** nextreciept@gmail.com
+- **טלפון:** אייל 052-635-0902
+- **תיעוד:** [NextReceipt API Provider Guide](https://github.com/eyalbmma/Nextreceipt-backend/blob/main/NextReceipt_API_Provider_Guide_Hebrew.md)
+
+## Backoffice
+
+**גישה למערכת הניהול:**
+- **URL:** https://backoffice.nextreceipt.net/
+- **Username:** autosoft_admin
+- **Password:** Autosoft2025!
+
+---
+
+**💡 טיפ:** התחילו עם Smart Mode (send_receipt_with_mapping) - זה הכי פשוט ויעיל!
